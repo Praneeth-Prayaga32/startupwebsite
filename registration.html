@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .registration-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .registration-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .registration-form label {
+            font-weight: bold;
+        }
+        .registration-form input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .registration-button {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <h1>Registration</h1>
+        <form class="registration-form" id="registration-form" onsubmit="return validateForm()">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="userType">User Type</label>
+            <select id="userType" name="userType" required>
+                <option value="mentor">Mentor</option>
+                <option value="beginner">Beginner</option>
+                <option value="employee">Employee</option>
+            </select>
+
+            <button class="registration-button" type="submit">Register</button>
+        </form>
+    </div>
+    
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var userType = document.getElementById('userType').value;
+
+            if (!username || !email || !password || !userType) {
+                alert('Please fill in all fields');
+                return false; // Prevent form submission
+            }
+
+            // Redirect to login.html after successful registration
+            window.location.href = 'login.html';
+            return false; // Prevent default form submission
+        }
+    </script>
+</body>
+</html>

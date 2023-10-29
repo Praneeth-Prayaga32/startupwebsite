@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-option {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        .login-option label {
+            font-weight: bold;
+        }
+        .login-button {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .login-form input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <div class="login-form">
+            <div class="login-option">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="login-option">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+        </div>
+
+        <div class="login-option">
+            <label for="mentor">Mentor</label>
+            <input type="radio" id="mentor" name="userType" value="mentor">
+        </div>
+        <div class="login-option">
+            <label for="beginner">Beginner</label>
+            <input type="radio" id="beginner" name="userType" value="beginner">
+        </div>
+        <div class="login-option">
+            <label for="employee">Employee</label>
+            <input type="radio" id="employee" name="userType" value="employee">
+        </div>
+
+        <button class="login-button" onclick="validateLogin()">Login</button>
+    </div>
+    
+    <script>
+        function validateLogin() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var userType = document.querySelector('input[name="userType"]:checked');
+
+            if (!username || !password || !userType) {
+                alert('Please fill in all fields and select a user type');
+            } else {
+                if (userType.value === 'mentor') {
+                    window.location.href = 'adminhome.html';
+                } else if (userType.value === 'beginner') {
+                    window.location.href = 'homepage.html';
+                } else if (userType.value === 'employee') {
+                    window.location.href = 'employeehome.html';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
